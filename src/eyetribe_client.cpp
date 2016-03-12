@@ -135,7 +135,7 @@ int main(int argc, char** argv)
     		   y_avg=(1-alpha)*y_avg_old+alpha*y_avg;
     		  eye_avg.x=x_avg;eye_avg.y=y_avg;eye_avg.z=0;
     	    //    eye_gaze.publish(eye_avg);
-    	          sprintf(str, "xdotool mousemove %.0f %.0f", BOUND(x_avg,0,1920), BOUND(y_avg,0,1080));system(str);bzero(str,256);
+    	          sprintf(str, "xdotool mousemove %.0f %.0f", BOUND(x_avg,0,SCREEN_H_RES), BOUND(y_avg,0,SCREEN_V_RES));system(str);bzero(str,256);
     	          x_avg_old=x_avg;y_avg_old=y_avg;
     	   }
     	        }
