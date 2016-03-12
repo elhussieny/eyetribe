@@ -6,25 +6,19 @@ If the Eyetribe not appeared at the end you can do these steps:
   
   1. Enable USB3.0 from Ubuntu:
       $ sudo usermod -a -G vboxusers [username]
-  2. Increase the resources for the VM guest such as RAM, CPU and VGA memory.  
+  2. Increase the resources for the VM guest such as RAM, CPU and VGA memory.
+
 # To Build the ROS Eyetribe Client:
 
     cd ~ROS_Workspace/src/
-<<<<<<< HEAD
     git clone http://github.com/elhussieny/eyetribe.git
     cd ~/ROS_Workspace/
-=======
-    
-    git clone http://github.com/elhussieny/eyetribe.git
-    
-    cd ~/ROS_Workspace/
-    
->>>>>>> a300d90ef23b850aefaccea3caf8029d58db0627
     catkin_make
 
 # To Run The ROS Eyetribe Client: 
 
     roscore
     rosrun eyetribe eyetribe_client
-#Note:
+
+# Notes:
 The code uses the xdotool to move the mouse to the specified gaze location. The resolution of the screen could be changed with the #defined SCREEN_V_RES and SCREEN_H_RES. 
