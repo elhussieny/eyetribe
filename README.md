@@ -54,7 +54,7 @@ The PortNo specified for the Eyetribe server.
 
     <param name="filter_coeff" value="0.1" />
 
-The moving average filter coeff. It is between 0 to 1. If small value selected, the gaze points will be highly filtered but with slow response and vise versa. 
+The double exponential filter coeff. It is between 0 to 1. If small value selected, the gaze points will be highly filtered but with slow response and vise versa. 
 
 # Notes:
 The code uses the xdotool to move the mouse pointer to the specified gaze location.
