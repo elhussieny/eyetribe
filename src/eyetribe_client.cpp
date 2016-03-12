@@ -15,9 +15,9 @@
 #include <termios.h>
 #define BOUND(x, a, b) (((x)<(a))?(a):((x)>(b))?(b):(x))
 #define PI 3.1415926
-
 #define SCREEN_V_RES 1080
 #define SCREEN_H_RES 1920
+using namespace std;
 
 char *JSON_heart_beat="{\"category\":\"heartbeat\"}";
 
@@ -59,6 +59,12 @@ void error(const char *msg)
  float x_avg, y_avg, left_x_avg, left_y_avg, left_pcenter_x, left_pcenter_y, left_psize, left_x_raw, left_y_raw,x_avg_old,y_avg_old,
     x_raw, y_raw, right_x_avg, right_y_avg, right_pcenter_x, right_pcenter_y, right_psize, right_x_raw, right_y_raw;
  int state, tet_time, fix;
+ int v_reselution;
+ int h_reselution;
+ std::string ip_server;
+ int port_no;
+double filter_coeff;
+
  bool start_program=true;
 #define alpha 0.1
  /***************************************************************************************/
@@ -72,13 +78,21 @@ int main(int argc, char** argv)
 {
  ros::init(argc, argv, "gaze_client_node");
     ros::NodeHandle nh;
-  char buffer[4096];
+    //initialize operational flags
+    nh.param<int>("v_reselution", v_reselution, SCREEN_V_RES);
+    nh.param<int>("h_reselution", h_reselution, SCREEN_H_RES);
+    nh.param<std::string>("ip_server", ip_server, "192.168.152.128");
+    nh.param<int>("port_no", port_no, 6555);
+    nh.param<double>("filter_coeff", filter_coeff, alpha);
 
-    portno = 6555;
+
+    char buffer[4096];
+
+    portno = port_no;
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0)
         error("ERROR opening socket");
-    server = gethostbyname("192.168.152.128");
+    server = gethostbyname(ip_server.c_str());
     if (server == NULL) {
         fprintf(stderr,"ERROR, no such host\n");
         exit(0);
@@ -131,11 +145,11 @@ int main(int argc, char** argv)
     	      //     printf("X:%f Y:%f\n",x_avg,y_avg);
 
     		   if(start_program==true){x_avg_old=x_avg;y_avg_old=y_avg;start_program=false;}
-    		   x_avg=(1-alpha)*x_avg_old+alpha*x_avg;
-    		   y_avg=(1-alpha)*y_avg_old+alpha*y_avg;
+    		   x_avg=(1-filter_coeff)*x_avg_old+filter_coeff*x_avg;
+    		   y_avg=(1-filter_coeff)*y_avg_old+filter_coeff*y_avg;
     		  eye_avg.x=x_avg;eye_avg.y=y_avg;eye_avg.z=0;
     	    //    eye_gaze.publish(eye_avg);
-    	          sprintf(str, "xdotool mousemove %.0f %.0f", BOUND(x_avg,0,SCREEN_H_RES), BOUND(y_avg,0,SCREEN_V_RES));system(str);bzero(str,256);
+    	          sprintf(str, "xdotool mousemove %.0f %.0f", BOUND(x_avg,0,h_reselution), BOUND(y_avg,0,v_reselution));system(str);bzero(str,256);
     	          x_avg_old=x_avg;y_avg_old=y_avg;
     	   }
     	        }
