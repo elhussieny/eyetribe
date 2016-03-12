@@ -24,21 +24,36 @@ If the Eyetribe not appeared at the end you can do these steps:
     roslaunch eyetribe eyetribe_client.launch
 
 # Operational Parameters:
-  In the launch file you can adjust the running paprameters as follows:
+  In the launch file you can adjust the running parameters as follows:
 
-  (1) <param name="v_reselutione" value="1080" />
-The screen vertical resolution. Defualt is 1080.
+  (1).
 
-  (2) <param name="h_reselutione" value="1920" />
-The screen horizontal resolution. Defualt is 1920.
+    <param name="v_reselutione" value="1080" />
 
-  (3) <param name="ip_server" value="192.168.152.128" />
-The IP of the guest VM which runs the eyetribe server. 
+The screen vertical resolution. Default is 1080.
 
-  (4) <param name="port_no" value="6555" />
-The PortNo specified for the eyetribe server. 
+  (2).
 
-  (5) <param name="filter_coeff" value="0.1" />
+    <param name="h_reselutione" value="1920" />
+
+The screen horizontal resolution. Default is 1920.
+
+  (3).
+
+    <param name="ip_server" value="192.168.152.128" />
+
+The IP of the guest VM which runs the Eyetribe server. 
+
+  (4).
+
+    <param name="port_no" value="6555" />
+
+The PortNo specified for the Eyetribe server. 
+
+  (5).
+
+    <param name="filter_coeff" value="0.1" />
+
 The moving average filter coeff. It is between 0 to 1. If small value selected, the gaze points will be highly filtered but with slow response and vise versa. 
 
 # Notes:
