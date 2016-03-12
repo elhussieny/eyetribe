@@ -9,10 +9,10 @@ If the Eyetribe not appeared at the end you can do these steps:
   2. Increase the resources for the VM guest such as RAM, CPU and VGA memory.  
 # To Build the ROS Eyetribe Client:
 
-    $ cd ~ROS_Workspace/src/
-    $ git clone http://github.com/elhussieny/eyetribe.git
-    $ cd ~/ROS_Workspace/
-    $ catkin_make
+    cd ~ROS_Workspace/src/
+    git clone http://github.com/elhussieny/eyetribe.git
+    cd ~/ROS_Workspace/
+    catkin_make
 
 # To Run The ROS Eyetribe Client: 
 
