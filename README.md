@@ -10,16 +10,8 @@ If the Eyetribe not appeared at the end you can do these steps:
 # To Build the ROS Eyetribe Client:
 
     cd ~ROS_Workspace/src/
-<<<<<<< HEAD
     git clone http://github.com/elhussieny/eyetribe.git
     cd ~/ROS_Workspace/
-=======
-    
-    git clone http://github.com/elhussieny/eyetribe.git
-    
-    cd ~/ROS_Workspace/
-    
->>>>>>> a300d90ef23b850aefaccea3caf8029d58db0627
     catkin_make
 
 # To Run The ROS Eyetribe Client: 
