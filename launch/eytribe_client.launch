@@ -1,0 +1,13 @@
+<launch>
+
+     <node pkg="eyetribe" name="eyetribe_ros_client" type="eyetribe_client" respawn="true" output="screen">
+	
+	<param name="v_reselutione" value="1080" />
+	<param name="h_reselutione" value="1920" />
+	<param name="ip_server" value="192.168.152.128" />
+	<param name="port_no" value="6555" />
+	<param name="filter_coeff" value="0.1" />
+
+    </node>
+
+</launch>
