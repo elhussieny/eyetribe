@@ -58,7 +58,9 @@ The double exponential filter coeff. It is between 0 to 1. If small value select
 
 # Notes:
 (1) The code uses the xdotool to move the mouse pointer to the specified gaze location.
+
 (2) To aquire gaze location continously from the Eyetribe server, the program implments a heartbeat that send a request every one sec.
+
 (3) To enable the remote connection for the Eyetribe server by default, you need to add this EyeTribe.cfg file in the Eyetribe installation folder in Windows under:
 
 	C:\Users\<current_user>\AppData\EyeTribe\EyeTribe.cfg
