@@ -63,11 +63,11 @@ The double exponential filter coeff. It is between 0 to 1. If small value select
 
 	C:\Users\<current_user>\AppData\EyeTribe\EyeTribe.cfg
 
-{
-   "config" : {
-     "device" : 0,
-     "remote" : true,
-     "framerate" : 30,
-     "port" : 6555   
-   }
-}
+    {
+    "config" : {
+    "device" : 0,
+    "remote" : true,
+    "framerate" : 30,
+    "port" : 6555   
+    }
+    }
